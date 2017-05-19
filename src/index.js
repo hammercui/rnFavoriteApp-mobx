@@ -12,5 +12,4 @@ if (!__DEV__) {
     error: () => {},
   };
 }
-
-AppRegistry.registerComponent('App', () => App);
+AppRegistry.registerComponent('tyrael', () => App);
