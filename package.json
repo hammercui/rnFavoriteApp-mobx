@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "camelcase": "^4.1.0",
     "fbemitter": "^2.1.1",
     "mobx": "^3.1.9",
@@ -15,9 +16,10 @@
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
     "react-native-vector-icons": "^4.1.1",
-    "react-navigation": "^1.0.0-beta.9",
+    "react-navigation": "^1.0.0-beta.10",
     "react-router-native": "^4.1.1",
-    "react-subscribe": "^1.1.0"
+    "react-subscribe": "^1.1.0",
+    "urijs": "^1.18.10"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",

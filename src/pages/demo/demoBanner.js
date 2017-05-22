@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     resizeMode: 'contain',
-    tintColor: '#fff',
     margin: 8,
   },
   title: {
