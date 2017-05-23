@@ -6,7 +6,7 @@ const storeKeys = {
   SAVED_ACCESS_TOKEN: 'savedAccessToken',
 };
 
-const PRODUCTION_HOST = 'https://wapi.duiduiche.com/v1/';
+const PRODUCTION_HOST = 'https://wapi.duiduiche.com/v1';
 
 export default {
   storeKeys: storeKeys,

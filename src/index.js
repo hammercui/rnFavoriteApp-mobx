@@ -2,7 +2,10 @@
  * Created by Gaohan on 2017/5/18.
  */
 import { AppRegistry } from 'react-native';
-import App from './core/homeContainer';
+
+// import tyrael from './core/homeContainer';
+
+import tyrael from './pages/demo/loginDemo';
 
 if (!__DEV__) {
   global.console = {
@@ -12,4 +15,4 @@ if (!__DEV__) {
     error: () => {},
   };
 }
-AppRegistry.registerComponent('tyrael', () => App);
+AppRegistry.registerComponent('tyrael', () => tyrael);
