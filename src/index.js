@@ -1,11 +1,13 @@
 /**
  * Created by Gaohan on 2017/5/18.
  */
+import React,{PureComponent} from "react";
 import { AppRegistry } from 'react-native';
 
 // import tyrael from './core/homeContainer';
 
-import tyrael from './pages/demo/loginDemo';
+import Router from "./core/router";
+//import tyrael from './pages/demo/login/index';
 
 if (!__DEV__) {
   global.console = {
@@ -15,4 +17,16 @@ if (!__DEV__) {
     error: () => {},
   };
 }
-AppRegistry.registerComponent('tyrael', () => tyrael);
+
+const prefix = 'tyrael://';
+
+class App extends PureComponent{
+
+  render(){
+    return <Router uriPrefix={prefix} />
+  }
+}
+
+
+
+AppRegistry.registerComponent('tyrael', () => App);

@@ -11,7 +11,6 @@ export default {
   colorTextDisable: '#444444',        // 文字虚色 灰色
 
 
-
   /** ========================== 文字 ========================== **/
   textFontSizeBase: 15,                   // 基础文字大小
   textLineHeight: 20,                     // 文字行高
@@ -19,6 +18,8 @@ export default {
   /** ========================== 布局 ========================== **/
   screenWidth: Dimensions.get('window').width, // 屏幕宽
   screenHeight: Dimensions.get('window').height, // 屏幕高
-
-
+  screenTabIconHeight: Platform.OS === "ios" ? 40 : 30, //TabBar的icon区域高度
+  screenTabLabelHeight: 16, //TabBar的label区域高度
+  screenTabHeight:56,//TabBar的高度
 }
+

@@ -6,10 +6,9 @@ import { request, saveToken, saveRefreshToken, loadRefreshToken } from '../utils
 import tools from '../utils/tools';
 
 export class LoginForm {
-
   constructor() {
-
   }
+
 
   @observable
   username = '13889375872';

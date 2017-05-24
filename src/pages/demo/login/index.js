@@ -17,7 +17,7 @@ import { StackNavigator } from 'react-navigation';
 
 import { observable, computed, action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
-import { LoginForm } from '../../logics/auth';
+import { LoginForm } from '../../../logics/auth';
 
 
 const testTitle = observable(null);
@@ -91,6 +91,7 @@ export default class demoLogin extends React.PureComponent {
       alert('获取用户信息失败');
     });
   };
+
 
   render() {
     return (
