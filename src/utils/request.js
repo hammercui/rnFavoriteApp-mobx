@@ -66,6 +66,35 @@ export async function clearToken() {
 
 
 /**
+ * 刷新token
+ * @param params
+ * @returns {*}
+ */
+export let refreshToken =  async () => {
+  const refresh_token_params = {
+    refresh_token: await loadRefreshToken(),
+    grant_type: 'refresh_token',
+    client_id: 'clientapp',
+    client_secret: '123456'
+  };
+  return request().post(
+    '/oauth/token' + tools.queryStringify(refresh_token_params, '?'),
+    refresh_token_params,
+    {
+      auth: {
+        username: 'clientapp',
+        password: '123456'
+      },
+    }
+  ).then(data => {
+      const { access_token } = data;
+      console.log("login_token", data);
+      saveToken(access_token);
+    }
+  )
+};
+
+/**
  * 网络请求设置
  * @type {{Content-Type: string}}
  */
@@ -145,6 +174,7 @@ function middleware(error) {
           error = errorFactory.httpFactory(error.response);
           break;
         case 401:
+        // case 500:
           // console.info(error.response)
           error = errorFactory.loginErrFactory('认证授权失败,请登录', error.response);
           emit('invalidToken');
@@ -174,3 +204,4 @@ function middleware(error) {
   }
   throw error;
 }
+

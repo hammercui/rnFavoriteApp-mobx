@@ -18,7 +18,7 @@ import { StackNavigator } from 'react-navigation';
 import { observable, computed, action, autorun } from 'mobx';
 import { observer } from 'mobx-react';
 import { LoginForm } from '../../../logics/auth';
-
+import { refreshToken } from '../../../utils/request';
 
 const testTitle = observable(null);
 
@@ -68,8 +68,8 @@ export default class demoLogin extends React.PureComponent {
     });
   };
 
-  refreshToken = () => {
-    this.form.refresh_token()
+  _refreshToken = () => {
+    refreshToken()
       .then(data => {
         console.log(data)
         alert('刷新token成功');
@@ -114,7 +114,7 @@ export default class demoLogin extends React.PureComponent {
                   title="登录测试"
                   color="#841584"
           />
-          <Button onPress={this.refreshToken}
+          <Button onPress={this._refreshToken}
                   title="刷新token"
                   color="#841584"
           />

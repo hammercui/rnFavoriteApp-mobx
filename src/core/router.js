@@ -2,14 +2,7 @@
  * Created by cly on 2017/5/18.
  */
 import React from 'react';
-import {
-  Text,
-  View,
-  Button,
-} from 'react-native';
-
 import { StackNavigator,TabNavigator,DrawerNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {tabNavigationOptions,tabNavigatorConfig,modalStackNavigationOptions,stackNavigationOptions} from "./routerConfig"
 
 //引入Screen

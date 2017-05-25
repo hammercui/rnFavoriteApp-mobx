@@ -52,42 +52,4 @@ export class LoginForm {
     // })
   }
 
-
-  /**
-   * 刷新token
-   * @param params
-   * @returns {*}
-   */
-
-  async refresh_token() {
-    const refresh_token_params = {
-      refresh_token: await loadRefreshToken(),
-      grant_type: 'refresh_token',
-      client_id: 'clientapp',
-      client_secret: '123456'
-    };
-    return request().post(
-      '/oauth/token' + tools.queryStringify(refresh_token_params, '?'),
-      refresh_token_params,
-      {
-        auth: {
-          username: 'clientapp',
-          password: '123456'
-        },
-      }
-    ).then(data => {
-        const { access_token } = data;
-        console.log("login_token", data);
-        saveToken(access_token);
-      }
-    )
-  }
-
-
-  /**
-   * 测试用 获取用户信息
-   */
-  getUserInfo() {
-    return request().get('/user/user_detail').then(data=>{console.log("用户信息", data)})
-  }
 }
