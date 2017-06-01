@@ -23,7 +23,7 @@ export default class Badge extends PureComponent {
 
   prepareRootProps() {
 
-    var type = {
+    let type = {
       backgroundColor: theme.colorPrimary,
       padding: (Platform.OS === 'ios') ? 1 : 0,
       paddingHorizontal: 3.8,
@@ -37,7 +37,7 @@ export default class Badge extends PureComponent {
 
     };
 
-    var defaultProps = {
+    const defaultProps = {
       style: type
     };
 

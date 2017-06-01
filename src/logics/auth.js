@@ -20,7 +20,7 @@ export class LoginForm {
 
   @computed
   get goto() {
-    return mobile + pwd;
+    return username + password;
   }
 
   /**

@@ -8,12 +8,12 @@ import ReactNativePropRegistry from 'react-native/Libraries/Renderer/src/rendere
 
 export default function (incomingProps, defaultProps) {
 // External props has a higher precedence
-  var computedProps = {};
+  let computedProps = {};
 
   incomingProps = _.clone(incomingProps);
   delete incomingProps.children;
 
-  var incomingPropsStyle = incomingProps.style;
+  let incomingPropsStyle = incomingProps.style;
   delete incomingProps.style;
 
   // console.log(defaultProps, incomingProps);
@@ -24,11 +24,11 @@ export default function (incomingProps, defaultProps) {
   // Pass the merged Style Object instead
   if (incomingPropsStyle) {
 
-    var computedPropsStyle = {};
+    let computedPropsStyle = {};
     computedProps.style = {};
     if (Array.isArray(incomingPropsStyle)) {
       _.forEach(incomingPropsStyle, (style)=> {
-        if (typeof style == 'number') {
+        if (typeof style === 'number') {
           _.merge(computedPropsStyle, ReactNativePropRegistry.getByID(style));
         } else {
           _.merge(computedPropsStyle, style);
@@ -37,7 +37,7 @@ export default function (incomingProps, defaultProps) {
 
     }
     else {
-      if (typeof incomingPropsStyle == 'number') {
+      if (typeof incomingPropsStyle === 'number') {
         computedPropsStyle = ReactNativePropRegistry.getByID(incomingPropsStyle);
       } else {
         computedPropsStyle = incomingPropsStyle;
