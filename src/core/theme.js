@@ -4,18 +4,18 @@
 import {Platform, Dimensions} from 'react-native';
 
 export default {
-  /** ========================== 颜色 ========================== **/
+  /** ========================== 颜色 color ========================== **/
   colorPrimary: '#A90F26',            // 基色 大红色
   colorBackground: '#FFFFFF',         // 背景色 白色
   colorText: '#000000',               // 文字色 黑色
   colorTextDisable: '#444444',        // 文字虚色 灰色
 
 
-  /** ========================== 文字 ========================== **/
+  /** ========================== 文字 text ========================== **/
   textFontSizeBase: 15,                   // 基础文字大小
   textLineHeight: 20,                     // 文字行高
 
-  /** ========================== 布局 ========================== **/
+  /** ========================== 布局 screen ========================== **/
   screenWidth: Dimensions.get('window').width, // 屏幕宽
   screenHeight: Dimensions.get('window').height, // 屏幕高
   screenTabIconHeight: Platform.OS === "ios" ? 40 : 30, //TabBar的icon区域高度
