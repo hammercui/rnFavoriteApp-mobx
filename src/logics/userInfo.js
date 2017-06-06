@@ -16,6 +16,8 @@ export default class UserInfoForm {
   shopName = '';
   @observable
   userName = '';
+  @observable
+  roleId = 0;
 
   constructor () {
   }
@@ -28,11 +30,14 @@ export default class UserInfoForm {
       .get('/user/user_detail')
       .then(
         data=>{
+          console.log(data)
           if (data) {
             this.avatarUrl = data.avatarUrl;
             this.phoneNumber = data.phoneNumber;
             this.shopName = data.shopName;
             this.userName = data.userName;
+            this.roleId = data.roleId;
+
           }
         }
       )

@@ -8,12 +8,11 @@ import {
   Button,
   Image
 } from 'react-native';
-import { observer } from 'mobx-react';
-
-import SingletonStore from '../../../logics/singletonStore';
+import { observer, inject } from 'mobx-react';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
+@inject('userInfo')
 @observer
 export default class MyselfScreen extends PureComponent{
 
@@ -31,9 +30,9 @@ export default class MyselfScreen extends PureComponent{
     const {navigate} = this.props.navigation;
     return(<View>
       <Text>这是我的</Text>
-      <Text>{SingletonStore.userInfo.userName}</Text>
-      <Text>{SingletonStore.userInfo.shopName}</Text>
-      <Text>{SingletonStore.userInfo.phoneNumber}</Text>
+      <Text>{this.props.userInfo.userName}</Text>
+      <Text>{this.props.userInfo.shopName}</Text>
+      <Text>{this.props.userInfo.phoneNumber}</Text>
       <Button
         onPress={() => navigate('ChatScreen', { user: 'hammer' })}
         title="Chat with hammer"

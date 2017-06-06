@@ -4,6 +4,16 @@
 import { observable, computed, observe, autorunAsync, autorun, reaction } from 'mobx';
 import UserInfoForm from './userInfo';
 
+/**
+ *
+ * ################  IMPORTANT！  ################
+ *
+ * 暂时不用这种方法，全局store请用index.js的方法！！！！！！！！
+ *
+ *
+ */
+
+
 class SingletonStore {
   @observable userInfo = null;
   @observable userDetail = "";

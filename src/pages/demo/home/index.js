@@ -12,16 +12,19 @@ import {
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import {Badge,} from"../../../widgets";
 import Icon from 'react-native-vector-icons/Ionicons';
 import theme from "../../../core/theme";
 const tabBarWidth = theme.screenWidth * 0.25;
 import {defaultStackOption} from "../../../core/routerConfig";
-import SingletonStore from '../../../logics/singletonStore';
+import Container from '../../../core/container';
+import {LoaderHandler} from '../../../components/indicator';
 
+
+@inject('userInfo')
 @observer
-export default class HomeScreen extends PureComponent{
+export default class HomeScreen extends Container {
 
   static navigationOptions = ({navigation})=>
     (
@@ -48,39 +51,69 @@ export default class HomeScreen extends PureComponent{
     super(props);
   }
 
+  componentDoingMount() {
+    return new Promise(
+      (resolve, reject)=>{
+        this.timer = setTimeout(() => {
+          resolve();
+        }, 100);
+      }
+    )
+  }
+
+  componentWillUnmount() {
+    this.timer && clearTimeout(this.timer);
+  }
+
   componentWillMount(){
     this.props.navigation.setParams({count:20});
   }
 
-  render() {
+  renderContent() {
 
     const {navigate} = this.props.navigation;
     return(
       <View style={styles.container}>
         <Text>这是首页</Text>
 
-        <Text>{SingletonStore.userInfo.userName}</Text>
-        <Text>{SingletonStore.userInfo.shopName}</Text>
-        <Text>{SingletonStore.userInfo.phoneNumber}</Text>
+        <Text>{this.props.userInfo.userName}</Text>
+        <Text>{this.props.userInfo.shopName}</Text>
+        <Text>{this.props.userInfo.phoneNumber}</Text>
 
-        <Text>userDetail: {SingletonStore.userDetail}</Text>
         <Button
           onPress={() => navigate('ChatScreen', { user: 'hammer' })}
           title="Chat with hammer"
         />
         <Button title="获取用户信息"   onPress={this._getUserInfo} />
-        <Button title="角标+1" onPress={this.addOne} />
+        <Button title="角标+1" onPress={this._addOne} />
+
+        <Button title="提示消息" onPress={this._showMessage} />
+
+        <Button title="菊花" onPress={this._showIndicator}/>
+
     </View>)
   }
 
   _getUserInfo = () => {
-    return SingletonStore.userInfo.getUserInfo().catch(err=>{console.log(err)});
+    return this.props.userInfo.getUserInfo().catch(err=>{console.log(err)});
   };
 
-  addOne = ()=>{
+  _addOne = ()=>{
     let count = (this.props.navigation.state.params.count || 0)  + 1;
     this.props.navigation.setParams({count:count});
-    SingletonStore.userInfo.userName = SingletonStore.userInfo.userName + "test";
+  };
+
+  _showMessage = ()=> {
+    this.showSuccessMsg("恭喜您，上架成功！");
+    // this.showErrorMsg(null,'加载车辆信息失败!');
+  };
+
+  _showIndicator = ()=> {
+    LoaderHandler.showLoader();
+
+    this.timer = setTimeout(() => {
+      LoaderHandler.hideLoader();
+    }, 1000);
   }
 }
 

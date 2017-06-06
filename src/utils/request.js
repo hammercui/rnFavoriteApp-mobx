@@ -8,7 +8,7 @@ import { EventEmitter } from 'fbemitter';
 
 import tools from './tools';
 import config from './config';
-import errorFactory from '../core/errorFactory';
+import errorFactory from '../logics/errorFactory';
 
 // 监听器，监听token是否失效
 const RPC = new EventEmitter();
@@ -71,8 +71,14 @@ export async function clearToken() {
  * @returns {*}
  */
 export let refreshToken =  async () => {
+  let refreshToken = await loadRefreshToken();
+
+  if (!refreshToken) {
+    return new Promise.reject();
+  }
+
   const refresh_token_params = {
-    refresh_token: await loadRefreshToken(),
+    refresh_token: refreshToken,
     grant_type: 'refresh_token',
     client_id: 'clientapp',
     client_secret: '123456'
@@ -174,7 +180,6 @@ function middleware(error) {
           error = errorFactory.httpFactory(error.response);
           break;
         case 401:
-        // case 500:
           // console.info(error.response)
           error = errorFactory.loginErrFactory('认证授权失败,请登录', error.response);
           emit('invalidToken');
