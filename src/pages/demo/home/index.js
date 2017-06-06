@@ -20,6 +20,7 @@ const tabBarWidth = theme.screenWidth * 0.25;
 import {defaultStackOption} from "../../../core/routerConfig";
 import Container from '../../../core/container';
 import {LoaderHandler} from '../../../components/indicator';
+import {clearToken} from '../../../utils/request';
 
 
 @inject('userInfo')
@@ -91,6 +92,8 @@ export default class HomeScreen extends Container {
 
         <Button title="菊花" onPress={this._showIndicator}/>
 
+        <Button title="清空token" onPress={this._clearToken}/>
+
     </View>)
   }
 
@@ -114,6 +117,10 @@ export default class HomeScreen extends Container {
     this.timer = setTimeout(() => {
       LoaderHandler.hideLoader();
     }, 1000);
+  };
+
+  _clearToken = async ()=> {
+    await clearToken();
   }
 }
 
