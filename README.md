@@ -1,5 +1,23 @@
 #react-native-mobx-start-kit
 
+> 黑科技
+
+react-native-rename组件——便利的rn项目改名库
+
+Installation
+
+```
+yarn global add react-native-rename
+or
+npm install react-native-rename -g
+```
+
+Usage
+
+```
+react-native-rename <newName>
+```
+
 > 描述
 
 1. react-native 应用mobx作为逻辑数据部分的架构；
