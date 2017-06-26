@@ -25,7 +25,7 @@ if (!__DEV__) {
   };
 }
 
-const prefix = 'tyrael://';
+const prefix = 'rnFavoriteMobx://';
 class App extends PureComponent{
   _onInvalidToken = () => {
     // 跳转到登录页面
@@ -76,7 +76,7 @@ class App extends PureComponent{
 
 
 
-AppRegistry.registerComponent('tyrael', () => App);
+AppRegistry.registerComponent('rnFavoriteMobx', () => App);
 
 
 const styles = StyleSheet.create({

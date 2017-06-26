@@ -1,4 +1,4 @@
-package com.tyrael;
+package com.rnfavoritemobx;
 
 import android.app.Application;
 

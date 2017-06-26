@@ -1,5 +1,5 @@
 {
-  "name": "tyrael",
+  "name": "rnFavoriteMobx",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -17,10 +17,12 @@
     "react-native": "0.44.0",
     "react-native-animatable": "^1.2.1",
     "react-native-dropdownalert": "^2.9.0",
+    "react-native-keyboard-aware-scroll-view": "^0.2.9",
     "react-native-spinkit": "^1.0.2",
     "react-native-vector-icons": "^4.1.1",
     "react-navigation": "^1.0.0-beta.10",
     "react-router-native": "^4.1.1",
+    "react-static-container": "^1.0.1",
     "react-subscribe": "^1.1.0",
     "urijs": "^1.18.10"
   },

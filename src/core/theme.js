@@ -1,7 +1,7 @@
 /**
  * Created by Gaohan on 2017/5/24.
  */
-import {Platform, Dimensions} from 'react-native';
+import {Platform, Dimensions,PixelRatio} from 'react-native';
 
 export default {
   /** ========================== 颜色 color ========================== **/

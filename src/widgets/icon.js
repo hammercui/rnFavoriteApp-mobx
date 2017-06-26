@@ -13,7 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // import Octicons from 'react-native-vector-icons/Octicons';
 // import Zocial from 'react-native-vector-icons/Zocial';
 
-import Right2Car from '../libs/aztecIcon';
+//import Right2Car from '../libs/aztecIcon';
 
 export default class IconNew extends PureComponent {
 
@@ -54,7 +54,7 @@ export default class IconNew extends PureComponent {
       // default:
       //   this.Icon = Ionicons;
 
-      this.Icon =  Right2Car;
+     // this.Icon =  Right2Car;
     //}
   }
 
