@@ -36,8 +36,6 @@ class App extends PureComponent{
     // 刷新token
     refreshAccessToken()
       .then(()=> {// 刷新成功后获取用户信息
-        stores.userInfo.getUserInfo();
-        stores.serviceInfo.getServiceInfo();
       })
       .catch (err => {
         console.log("err",err);
