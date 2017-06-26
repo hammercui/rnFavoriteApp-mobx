@@ -40,7 +40,7 @@ class App extends PureComponent{
         stores.serviceInfo.getServiceInfo();
       })
       .catch (err => {
-        console.log(err);
+        console.log("err",err);
         errorManager.handleErr(err, '登录错误！'+err.toString());
         this._onInvalidToken();
       });

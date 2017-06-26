@@ -50,8 +50,8 @@ export function saveRefreshToken(_refreshToken) {
  * @returns {Promise.<void>}
  */
 export async function loadRefreshToken() {
-  const refreshToken = await AsyncStorage.getItem(config.storeKeys.SAVED_REFRESH_TOKEN, );
-  return refreshToken;
+    let  refreshToken = await AsyncStorage.getItem(config.storeKeys.SAVED_REFRESH_TOKEN, );
+    return refreshToken;
 }
 
 
