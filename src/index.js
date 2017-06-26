@@ -10,7 +10,7 @@ import { Provider } from 'mobx-react';
 
 import stores from './logics'
 import Router from "./core/router";
-import RPC, { refreshToken, clearToken } from './utils/request';
+import RPC, { refreshAccessToken, clearToken } from './utils/request';
 
 import errorManager from './core/errorManager';
 import {BusyIndicator} from './components/indicator';
@@ -32,25 +32,18 @@ class App extends PureComponent{
     this._router._navigation.navigate("LoginScreen");
   };
 
-  _refreshToken = () => {
-    return refreshToken()
-      .then(data => {
-        console.log(data);
-        // alert('刷新token成功');
-      });
-  };
-
   async componentWillMount() {
-    // await clearToken();
     // 刷新token
-    this._refreshToken().then(()=> {
-      // 刷新成功后获取用户信息
-      stores.userInfo.getUserInfo();
-    }).catch (err => {
-      console.log(err);
-      errorManager.handleErr(err, '登录错误！');
-      // alert('刷新token失败');
-    });
+    refreshAccessToken()
+      .then(()=> {// 刷新成功后获取用户信息
+        stores.userInfo.getUserInfo();
+        stores.serviceInfo.getServiceInfo();
+      })
+      .catch (err => {
+        console.log(err);
+        errorManager.handleErr(err, '登录错误！'+err.toString());
+        this._onInvalidToken();
+      });
   }
 
   render(){
