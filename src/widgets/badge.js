@@ -4,8 +4,8 @@
 'use strict';
 import React, {PropTypes,PureComponent} from 'react';
 import {Text, View, Platform} from 'react-native';
-import enhanceProps from '../../utils/enhanceProps';
-import theme from "../../core/theme";
+import enhanceProps from '../utils/enhanceProps';
+import theme from "../core/theme";
 
 //默认badge属性
 const badgeDefaultOptions = {

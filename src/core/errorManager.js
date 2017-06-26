@@ -45,6 +45,13 @@ var errorManager = {
    * @param {Object} defaultHandle    当异常和所有注册的异常都不匹配的时候，做出的默认处理。这个参数可以是一个字符串，也可以是函数。如果是字符串就alert这个字符串，函数就执行这个函数
    */
   handleErr: function (error, otherHandle) {
+    //系统错误
+    if(error instanceof Error){
+      console.log(error.stack);
+      DropdownAlertHandler.showError(error.toString());
+      return;
+    }
+
     if (!error || !error._errorName || !this.findError(error._errorName)) {
       //发现error是未注册异常时候调用的方法
       if (typeof otherHandle == 'function') {
