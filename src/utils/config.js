@@ -3,7 +3,7 @@
  */
 const storeKeys = {
   SEARCH_HISTORY_KEY: 'SEARCH_HISTORY_KEY',
-  SAVED_ACCESS_TOKEN: 'savedAccessToken',
+  SAVED_REFRESH_TOKEN: 'savedRefreshToken',
 };
 
 const PRODUCTION_HOST = 'https://wapi.duiduiche.com/v1';
